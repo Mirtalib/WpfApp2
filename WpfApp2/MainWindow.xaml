@@ -5,41 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Telegram" Height="450" Width="400">
+        Title="Telegram" Height="460" Width="400">
 
     <Grid Background="White" >
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="15*"></RowDefinition>
-            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="2*" ></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="listView" ItemsSource="{Binding Message}" Margin="1" Foreground="#FF2CF75D" HorizontalContentAlignment="Right" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            
+            <Label>
+                <Label.Background>
+                    <ImageBrush ImageSource="Icon and Image/7-77391_businessman-transparent-business-man-png.png" Stretch="UniformToFill"/>
+                </Label.Background>
+            </Label>
+
+
+            <Label Grid.Column="1" FontSize ="32" Background="Snow">Isa Memmedov</Label>
+
+
+        </Grid>
+        
+        <ListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding Message}" Margin="1" Foreground="#FF2CF75D" HorizontalContentAlignment="Right" >
             <ListView.Background>
-                <ImageBrush ImageSource="/whatsapp background.jpg" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="Icon and Image/whatsapp background.jpg" Stretch="UniformToFill"/>
             </ListView.Background>
 
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="13214"  DisplayMemberBinding="{Binding Context}"></GridViewColumn>
-                        <GridViewColumn Header="salam"  DisplayMemberBinding="{Binding DateTime}"></GridViewColumn>
-                        
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        x:Name="BorderMessage"
+                        BorderBrush="LimeGreen"
+                        CornerRadius="5"
+                        BorderThickness="5">
+                        <StackPanel
+                            x:Name="StackPanelMessage"
+                            Background="LimeGreen"
+                            Orientation="Horizontal">
+                            <TextBlock Name="txtBlockContextMessage" Text="{Binding Context}" FontSize="10" Foreground="White"/>
+                            <TextBlock Name="txtBlockDataTimeMessage" Text="{Binding DateTime}" FontSize="7" Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition Width="9*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="txtBoxMessage" Grid.Column="1" IsUndoEnabled="False" Background="#FFF7EFEF"/>
+            <TextBox x:Name="txtBoxMessage" Margin="3" Grid.Column="0" IsUndoEnabled="False" Background="#FFF7EFEF"/>
+            <Button Grid.Column="2" Margin="3" Click="Button_Click" Height="27" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Icon and Image/1564528_fly_messager_send_communication_email_icon.png" Stretch="Uniform"/>
+                </Button.Background>
 
-            <Button Grid.Column="2" Click="Button_Click" Height="27" VerticalAlignment="Top"></Button>
+            </Button>
 
         </Grid>
 

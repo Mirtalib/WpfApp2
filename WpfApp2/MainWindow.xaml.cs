@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,12 +27,11 @@ namespace WpfApp2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // txtBoxMessage
+            if (string.IsNullOrWhiteSpace(txtBoxMessage.Text))
+                return;
 
             messages.Add(new Message(txtBoxMessage.Text, DateTime.Now));
-
-            Message  message = new Message(txtBoxMessage.Text, DateTime.Now);
-
+            messages.Add(new Message($"{txtBoxMessage.Text}: Bot", DateTime.Now));
             listView.ItemsSource = null;
             listView.ItemsSource = messages;
             txtBoxMessage.Text = null;

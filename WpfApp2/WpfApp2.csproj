@@ -8,18 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="1564528_fly_messager_send_communication_email_icon.png" />
+    <None Remove="7-77391_businessman-transparent-business-man-png.png" />
+    <None Remove="Men.png" />
     <None Remove="telegram background.jpg" />
     <None Remove="whatsapp background.jpg" />
     <None Remove="wp Image.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="whatsapp background.jpg" />
-    <Resource Include="wp Image.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Icon and Image\" />
+    <Resource Include="Icon and Image\1564528_fly_messager_send_communication_email_icon.png" />
+    <Resource Include="Icon and Image\7-77391_businessman-transparent-business-man-png.png" />
+    <Resource Include="Icon and Image\Men.png" />
+    <Resource Include="Icon and Image\whatsapp background.jpg" />
+    <Resource Include="Icon and Image\wp Image.jpg" />
   </ItemGroup>
 
 </Project>
